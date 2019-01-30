@@ -1,40 +1,52 @@
-const express = require('express');
-const exphbs  = require('express-handlebars');
+const express = require("express");
 const bodyParser = require("body-parser");
-const path = require('path');
-const logger = require('morgan');
+const logger = require("morgan");
 const mongoose = require("mongoose");
-
-
+const Handlebars = require('handlebars');
+const exphbs = require('express-handlebars');
+const path = require("path");
+const router = require('./routes/routes');
 const app = express();
-const PORT = process.env.PORT || 8080;
+require('dotenv').config();
+// scraping tools
+// Axios is a promised-based http library, similar to jQuery's Ajax method
+// It works on the client and on the server
+const axios = require("axios");
+const cheerio = require("cheerio");
+const db = require("./models");
+app.engine('handlebars', exphbs({
+    defaultLayout: 'main'
+}));
+app.set('view engine', 'handlebars');
+const PORT = process.env.PORT || 3000;
 
+app.use(logger("dev"));
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
+app.use(express.static(path.join(__dirname, 'public')))
 
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }));
-// parse application/json
-app.use(bodyParser.json());
+app.use('/', router);
+app.engine('handlebars', exphbs({
+    defaultLayout: 'main'
+}));
+app.set('view engine', 'handlebars');
+let saved;
+Handlebars.registerHelper("isSaved", function (saved) {
+    console.log("saved\n" + saved);
+    if (saved === true || saved === false) {
+        return true;
+    } else {
+        return false;
+    }
+});
 
 mongoose.Promise = Promise;
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://alex:OrangE32@ds147411.mlab.com:47411/heroku_59fgdfg5"
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
-const db = mongoose.connection
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://alex:OrangE32@ds147411.mlab.com:47411/heroku_59fgdfg5"
 
-db.on('error', err => console.log(`Mongoose connection error: ${err}`))
-// view engine setup
-db.once('open', () => console.log(`Connected to MongoDB`))
- 
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
-app.set('view engine', 'handlebars');
+ mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
-
-const routes = require('./routes/index')
-app.use('/', routes)
-
-
-
-app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`))
+// Start the server
+app.listen(PORT, function () {
+    console.log("App running on port " + PORT + "!");
+});
