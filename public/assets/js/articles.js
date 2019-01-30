@@ -25,10 +25,7 @@ $(document).on("click", "#scrape", function () {
       .done(function(results) {
         // Materialize.toast('Article Saved!', 4000)
       window.location =  "/articles/" + results._id;
-        
       });
-      
-      // var currentURL = window.location;
   });
 
   $(document).on("click", "#article-view", function() {
