@@ -4,6 +4,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom center;
+    font-family: 'Playfair Display SC', serif;
 }
 
 .brand-logo {
@@ -20,7 +21,7 @@
     height: 65px;
     line-height: 65px;
     margin: 0px;
-    background-color: #922727;
+    background-color: red;
 }
 
 .login-body {
@@ -62,12 +63,12 @@ h4 {
 
 #login-submit-btn:hover {
     color: white;
-    background-color: #ca3a65;
+    background-color: #cb1d51;
 }
 
 .see-event {
     margin-right: 10px;
-    color: #922727 !important;
+    color: red !important;
 }
 
 .see-event:hover {
@@ -77,11 +78,11 @@ h4 {
 
 .signup-event {
     margin-right: 10px;
-    color: #922727 !important;
+    color: red !important;
 }
 
 .signup-event:hover {
-    color: #ca3a65 !important;
+    color: #cb1d51 !important;
 }
 
 .material-icons.add-event-btn {
@@ -89,7 +90,7 @@ h4 {
 }
 
 .material-icons.add-event-btn:hover {
-    background-color: #ca3a65 !important;
+    background-color: #cb1d51 !important;
 }
 
 .material-icons.add-user-btn {
@@ -97,23 +98,23 @@ h4 {
 }
 
 .material-icons.add-user-btn:hover {
-    background-color: #ca3a65 !important;
+    background-color: #cb1d51 !important;
 }
 
 .material-icons.list-btn {
-    background-color: #df1739 !important;
+    background-color: red !important;
 }
 
 .material-icons.list-btn:hover {
-    background-color: #ca3a65 !important;
+    background-color: #cb1d51 !important;
 }
 
 .material-icons.back-arrow {
-    background-color: #922727 !important;
+    background-color: red!important;
 }
 
 .material-icons.edit-button {
-    background-color: #922727 !important;
+    background-color: red !important;
 }
 
 #nav-icon {
@@ -137,7 +138,7 @@ h4 {
 
 #navigation-bar {
     height: 65px !important;
-    background-color: #922727 !important;
+    background-color: red !important;
 }
 
 #breadcrumb-bar {
@@ -168,7 +169,7 @@ h4 {
 /* event page edit, delete, signup buttons */
 
 .material-icons.signup {
-    background-color: #df1739 !important;
+    background-color: red !important;
     color:white!important; 
 
 }
@@ -231,7 +232,7 @@ h4 {
     text-align: center !important;
     font-family: 'Pontano Sans', sans-serif;
     /* background-color: #33658A; */
-    background-color: #df1739;
+    background-color: red;
 }
 
 .event-volunteer-img {
@@ -239,11 +240,11 @@ h4 {
 }
 
 .see-user {
-    color: #922727 !important;
+    color: red !important;
 }
 
 .see-user:hover {
-    color: #cb1d51 !important;
+    color: red !important;
 }
 
 
@@ -279,7 +280,7 @@ h4 {
 }
 
 .password-icon:hover {
-    color: #922727;
+    color: red;
 }
 
 .user-field-label{
